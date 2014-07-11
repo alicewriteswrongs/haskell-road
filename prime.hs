@@ -78,5 +78,13 @@ blowup2 str = concat $ zipWith replicate [1..] str
 -- exercise 1.15
 -- sort a list of strings alphabetically
 sortString :: [String] -> [String]
-sortString 
+sortString [] = []
+sortString (x:xs) = 
+    let before  = sortString [s | s <- xs, s <= x]
+        after   = sortString [s | s <- xs, s > x]
+    in before ++ [x] ++ after
+
+-- done!
+
+
 
