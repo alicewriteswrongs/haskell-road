@@ -103,6 +103,32 @@ subString xs (y:ys) | prefix xs (y:ys) = True
                     | otherwise        = False
 
 
+-- exercise 1.18
+-- making expressions of certain types
+-- ghc seems to prefer [Char] to String
+
+-- [String] || [[Char]]
+mystrings = ["just","a","couple","strings"]
+
+-- (Bool,String) || (Bool,[Char])
+boolString = (True,"True")
+
+-- [(Bool,String)] || [(Bool,[Char])]
+boolStrings = [(True,"True"),(False,"False")]
+
+-- ([Bool],String) || ([Bool],[Char])
+boolListString = ([True,False],"TrueFalse")
+
+-- Bool -> Bool
+boolBool :: Bool -> Bool
+boolBool False = True
+boolBool True = False
+
+-- useful! haha
+
+
+
+
 
 
 
