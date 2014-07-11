@@ -149,3 +149,13 @@ primeFactors n | n < 1 = error "negative num"
 lengths :: [[a]] -> [Int]
 lengths [] = [0]
 lengths xs = map length xs
+
+
+-- exercise 1.21
+
+lengthsSum :: [[a]] -> Int
+lengthsSum [] = 0
+lengthsSum xs = sum $ map length xs
+
+
+
