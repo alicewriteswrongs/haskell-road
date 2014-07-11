@@ -128,8 +128,24 @@ boolBool True = False
 
 
 
+-- exercise 1.19 is all in the interpreter
+-- (looking at the type signature for some builtins and figuring out what they do)
 
 
 
+-- prime factorization algorithm
+-- just a simple one
+-- find k prime factors of n p_i such that p_1 \cdot \ldots \cdot \p_k = n
+
+primeFactors :: Integer -> [Integer]
+primeFactors n | n < 1 = error "negative num"
+               | n == 1 = []
+               | otherwise = p : primeFactors (div n p)
+                    where p = ld n
 
 
+
+-- exercise 1.20
+lengths :: [[a]] -> [Int]
+lengths [] = [0]
+lengths xs = map length xs
