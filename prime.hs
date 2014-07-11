@@ -86,5 +86,24 @@ sortString (x:xs) =
 
 -- done!
 
+-- exercise 1.17
+
+prefix :: String -> String -> Bool
+prefix [] ys = True
+prefix (x:xs) [] = False
+prefix (x:xs) (y:ys) = (y==x) && prefix xs ys
+
+
+-- substring!
+subString :: String -> String -> Bool
+subString [] _ = True
+subString _ [] = False
+subString xs (y:ys) | prefix xs (y:ys) = True
+                    | subString xs ys  = True
+                    | otherwise        = False
+
+
+
+
 
 
