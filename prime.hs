@@ -158,4 +158,39 @@ lengthsSum [] = 0
 lengthsSum xs = sum $ map length xs
 
 
+primes :: Integer -> [Integer]
+primes n = filter myprime [1..n]
+
+
+-- new more efficient prime number finder
+
+-- also exercise 1.24
+ldp :: Integer -> Integer
+ldp n = ldpf primes1 n
+
+ldpf :: [Integer] -> Integer -> Integer
+ldpf (p:ps) n | rem n p == 0 =p
+              | p^2 > n = p
+              | otherwise = ldpf ps n
+
+
+primes1 :: [Integer]
+primes1 = 2 : filter prime [3..]
+
+prime :: Integer -> Bool
+prime n | n < 1     = error "nope"
+        | n == 1    = False
+        | otherwise = ldp n == n
+
+-- when we modify the ldp function as above (from the version presented in the book)
+-- it still works
+-- this is just another way to declare functions in haskell
+-- instead of binding a variable in the function declaration we can just return the procedure
+-- itself
+
+
+
+
+
+
 
